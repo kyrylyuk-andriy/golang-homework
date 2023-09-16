@@ -1,4 +1,4 @@
-package main
+package homework3
 
 import ( 
 	"fmt"
@@ -36,7 +36,7 @@ var min, max, attempts int
 var secretNumber int
 
 
-func main() {
+func Game() {
 	character := Character {"Steven", true, []string{"backpack", "knife", "flashlight", "match"}}
 	if character.Sleeping == true {
 		fmt.Printf("%s is sleeping right now, Lets wake up him\n", character.Name)
