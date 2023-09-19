@@ -1,3 +1,3 @@
-module homework3
+module homework
 
 go 1.17
