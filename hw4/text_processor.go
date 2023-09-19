@@ -1,4 +1,4 @@
-package homework
+package hw4
 
 import (
 	"bufio"
