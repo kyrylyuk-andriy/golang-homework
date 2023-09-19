@@ -1,12 +1,12 @@
 package homework
 
 import (
+	"bufio"
 	"fmt"
 	"io"
-	"bufio"
 )
 
-func ReadLines(input io.Reader) ([]string) {
+func ReadLines(input io.Reader) []string {
 	var text []string
 
 	scanner := bufio.NewScanner(input)
@@ -17,16 +17,16 @@ func ReadLines(input io.Reader) ([]string) {
 	}
 	for InputLines() {
 		eachLine := scanner.Text()
-		if line == "" {
+		if eachline == "" {
 			break
 		}
 		text = append(text, eachLine)
 	}
-	
-	return text
-} 
 
-func PrintLines(text []string, output io.Writer){
+	return text
+}
+
+func PrintLines(text []string, output io.Writer) {
 	for _, v := range text {
 		_, err := fmt.Fprintln(output, v)
 	}
