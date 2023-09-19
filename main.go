@@ -1,9 +1,9 @@
 package main
 
 import (
-//  "homework3/homework3"
-//  "homework4/homework4"
+    "github.com/kyrylyuk-andriy/golang-homework/homework"
 )
 
 func main() {
+  homework.Game()
 }
