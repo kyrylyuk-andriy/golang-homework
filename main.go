@@ -1,10 +1,12 @@
 package main
 
 import (
+	"os"
+
 	"github.com/kyrylyuk-andriy/golang-homework/homework"
 )
 
 func main() {
-	homework.ReadLines()
-	homework.PrintLines()
+	lines := homework.ReadLines(os.Stdin)
+	homework.PrintLines(lines, os.Stdout)
 }

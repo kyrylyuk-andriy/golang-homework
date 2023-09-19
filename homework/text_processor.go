@@ -17,7 +17,7 @@ func ReadLines(input io.Reader) []string {
 	}
 	for InputLines() {
 		eachLine := scanner.Text()
-		if eachline == "" {
+		if eachLine == "" {
 			break
 		}
 		text = append(text, eachLine)
@@ -28,6 +28,6 @@ func ReadLines(input io.Reader) []string {
 
 func PrintLines(text []string, output io.Writer) {
 	for _, v := range text {
-		_, err := fmt.Fprintln(output, v)
+		fmt.Fprintln(output, v)
 	}
 }
