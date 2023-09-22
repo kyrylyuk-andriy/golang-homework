@@ -5,6 +5,5 @@ import (
 )
 
 func main() {
-	hw5.CreateBoardGame()
-	hw5.PrintBoardGame()
+	hw5.Tic_Tac_Toe()
 }
