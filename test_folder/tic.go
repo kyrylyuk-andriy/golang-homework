@@ -9,6 +9,12 @@ var board = make(map[int]string)
 var currentPlayer string
 var gameActive bool
 
+var winningCombinations = [][3]int{
+	{1, 2, 3}, {4, 5, 6}, {7, 8, 9}, // Rows
+	{1, 4, 7}, {2, 5, 8}, {3, 6, 9}, // Columns
+	{1, 5, 9}, {3, 5, 7}, // Diagonals
+}
+
 func initializeBoard() {
 	for i := 1; i <= 9; i++ {
 		board[i] = " "
@@ -24,12 +30,6 @@ func printBoard() {
 }
 
 func checkWin() bool {
-	winningCombinations := [][3]int{
-		{1, 2, 3}, {4, 5, 6}, {7, 8, 9}, // Rows
-		{1, 4, 7}, {2, 5, 8}, {3, 6, 9}, // Columns
-		{1, 5, 9}, {3, 5, 7}, // Diagonals
-	}
-
 	for _, combo := range winningCombinations {
 		if board[combo[0]] == currentPlayer && board[combo[1]] == currentPlayer && board[combo[2]] == currentPlayer {
 			return true
