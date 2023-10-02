@@ -3,9 +3,11 @@ package hw7Task1
 import (
 	"fmt"
 	"math/rand"
+	"time"
 )
 
 func RandomNumbers(randomNumbers chan int, randomAmount int) {
+	rand.Seed(time.Now().UnixNano())
 	for i := 0; i < randomAmount; i++ {
 		num := rand.Intn(10000)
 		randomNumbers <- num
