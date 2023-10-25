@@ -8,15 +8,15 @@ import (
 )
 
 func main() {
-	file, err := os.Open("wiki.txt")
+	file, err := os.Open("1689007676028_text.txt")
 	if err != nil {
 		fmt.Println("Error opening the file:", err)
 		return
 	}
 	defer file.Close()
 
-	// all words which starts from б and have at least 2 letters and not more than 4
-	regexPattern := `\b[b]\w{1,3}\b`
+	// all words which starts from б (Cyrillic) and have exactly 3 Cyryllic  letters
+	regexPattern := `\s\x{0431}\p{Cyrillic}{2}\s`
 	re := regexp.MustCompile(regexPattern)
 
 	scanner := bufio.NewScanner(file)
