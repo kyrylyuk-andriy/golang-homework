@@ -1,14 +1,11 @@
-package main
+package blockchain
 
 import (
 	"crypto/sha256"
 	"encoding/hex"
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"time"
-
-	"github.com/gorilla/mux"
 )
 
 type Block struct {
@@ -50,29 +47,6 @@ func IsBlockValid(newBlock, prevBlock Block) bool {
 		return false
 	}
 	return true
-}
-
-func main() {
-	r := mux.NewRouter()
-
-	genesisBlock := Block{
-		Index:     0,
-		Timestamp: time.Now().String(),
-		Data:      "Genesis Block",
-		PrevHash:  "",
-		Hash:      "",
-	}
-
-	genesisBlock.Hash = CalculateHash(genesisBlock)
-	Blockchain = append(Blockchain, genesisBlock)
-
-	r.HandleFunc("/blocks", GetBlocks).Methods("GET")
-	r.HandleFunc("/mine", MineBlock).Methods("POST")
-
-	http.Handle("/", r)
-
-	fmt.Println("Listen on port 8082...")
-	http.ListenAndServe(":8082", nil)
 }
 
 func GetBlocks(w http.ResponseWriter, r *http.Request) {
